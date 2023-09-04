@@ -224,7 +224,6 @@ class DetailsViewController: UIViewController {
         newsItem.url = urlClick.text!
         if let image = newsImage.image,
            let imageData = image.jpegData(compressionQuality: 1.0) {
-            // Преобразование в данные выполнено успешно, можно сохранить в базу данных
             newsItem.imageData = imageData
             RealmManager.shared.saveNewsItem(newsItem)
         } else {
@@ -237,14 +236,12 @@ class DetailsViewController: UIViewController {
         if let data = data {
             newsTitle.text = data.title
             newsSubtitle.text = data.subtitle
-            //dataReliase.text = data.publishedAt
             urlClick.text = data.url
             newsDescription.text = data.content
             
             if let data = data.imageData {
                 newsImage.image = UIImage(data: data)
             } else if let url = data.imageURL {
-                // fetch - Принести / Вернуть
                 
                 URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
                     guard let data = data, error == nil else {

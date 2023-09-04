@@ -58,7 +58,7 @@ class WelcomeViewController: UIViewController {
         button.layer.cornerRadius = 20
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
