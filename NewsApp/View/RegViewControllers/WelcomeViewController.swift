@@ -122,6 +122,7 @@ class WelcomeViewController: UIViewController {
 
 /// @objc funcs
 extension WelcomeViewController {
+    
     @objc func pressButtonLogin() {
         let vc = SignInViewController()
         present(vc, animated: true)
