@@ -173,6 +173,7 @@ extension SignUpViewController {
 
 /// Alerts
 extension SignUpViewController {
+    
     func showMinimumCharacters() {
         let alert = UIAlertController(title: "Password is too short!", message: "the minimum number of characters in the password is 6, the more complex your password, the more secure your account", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
