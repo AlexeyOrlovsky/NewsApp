@@ -70,6 +70,7 @@ class LibraryViewController: UIViewController {
     }
 }
 
+/// UITableViewDelegate & UITableViewDataSource
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedNews.count
@@ -104,6 +105,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+/// EmptyDataSetSource & EmptyDataSetDelegate
 extension LibraryViewController: EmptyDataSetSource, EmptyDataSetDelegate {
     func customView(forEmptyDataSet scrollView: UIScrollView) -> UIView? {
         let imageView = UIImageView(image: UIImage(systemName: "star.square.on.square.fill"))

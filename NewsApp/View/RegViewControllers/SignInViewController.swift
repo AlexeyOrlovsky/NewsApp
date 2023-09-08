@@ -15,20 +15,20 @@ import RealmSwift
 class SignInViewController: UIViewController {
     
     /// UI Elements
-    let strip: UIButton = {
+    let stripButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "stripGreen"), for: .normal)
         return button
     }()
     
-    let labelSingIn: UILabel = {
+    let singInLabel: UILabel = {
         let label = UILabel()
         label.text = "Login"
         label.font = UIFont.systemFont(ofSize: 18, weight: .black)
         return label
     }()
     
-    let emailField: UITextField = {
+    let emailTextField: UITextField = {
         let emailField = UITextField()
         emailField.backgroundColor = .secondarySystemBackground
         emailField.layer.cornerRadius = 10
@@ -42,7 +42,7 @@ class SignInViewController: UIViewController {
         return emailField
     }()
     
-    let passwordField: UITextField = {
+    let passwordTextField: UITextField = {
         let passField = UITextField()
         passField.isSecureTextEntry = true
         passField.backgroundColor = .secondarySystemBackground
@@ -79,38 +79,38 @@ class SignInViewController: UIViewController {
     }
     
     func setupAddSubviews() {
-        view.addSubview(labelSingIn)
-        view.addSubview(emailField)
-        view.addSubview(passwordField)
+        view.addSubview(singInLabel)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
         view.addSubview(enterButton)
-        view.addSubview(strip)
+        view.addSubview(stripButton)
         
         enterButton.addTarget(self, action: #selector(accountLogin), for: .touchUpInside)
-        strip.addTarget(self, action: #selector(stripEction), for: .touchUpInside)
+        stripButton.addTarget(self, action: #selector(stripEction), for: .touchUpInside)
     }
     
     /// Constraints
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        strip.snp.makeConstraints { make in
+        stripButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(5)
         }
         
-        labelSingIn.snp.makeConstraints { make in
+        singInLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(200)
         }
         
-        emailField.snp.makeConstraints { make in
+        emailTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(272)
             make.width.equalTo(340)
             make.height.equalTo(50)
         }
         
-        passwordField.snp.makeConstraints { make in
+        passwordTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(334)
             make.width.equalTo(340)
@@ -131,11 +131,11 @@ extension SignInViewController {
 
     /// Login user
     @objc private func accountLogin() {
-        emailField.resignFirstResponder()
-        passwordField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
         
-        guard let email = emailField.text, !email.isEmpty,
-              let password = passwordField.text, !password.isEmpty, password.count >= 6 else { showEmptyFields(); return }
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty, password.count >= 6 else { showEmptyFields(); return }
         
         existenceUser(email: email, password: password)
     }

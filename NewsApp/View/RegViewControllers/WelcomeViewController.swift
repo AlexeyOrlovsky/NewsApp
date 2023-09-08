@@ -12,14 +12,14 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     /// UI Elements
-    let labelWelcome: UILabel = {
+    let welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome!"
         label.font = .systemFont(ofSize: 30, weight: .black)
         return label
     }()
     
-    let labelWelInfo: UILabel = {
+    let welInfoLabel: UILabel = {
         let label = UILabel()
         label.text = "With our application, you can keep up to date with the latest developments related to management, economics, science, sports and many other areas."
         label.font = .systemFont(ofSize: 16, weight: .semibold)
@@ -29,7 +29,7 @@ class WelcomeViewController: UIViewController {
         return label
     }()
     
-    let buttonLogin: UIButton = {
+    let loginButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .black)
         button.setTitle("Login", for: .normal)
@@ -39,7 +39,7 @@ class WelcomeViewController: UIViewController {
         return button
     }()
     
-    let buttonCreate: UIButton = {
+    let createButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .black)
         button.setTitle("Create account", for: .normal)
@@ -49,7 +49,7 @@ class WelcomeViewController: UIViewController {
         return button
     }()
     
-    let buttonAboutUs: UIButton = {
+    let aboutUsButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .black)
         button.setTitle("About the application", for: .normal)
@@ -71,47 +71,47 @@ class WelcomeViewController: UIViewController {
     }
     
     func setupAddSubviews() {
-        view.addSubview(labelWelcome)
-        view.addSubview(labelWelInfo)
-        view.addSubview(buttonLogin)
-        view.addSubview(buttonCreate)
-        view.addSubview(buttonAboutUs)
+        view.addSubview(welcomeLabel)
+        view.addSubview(welInfoLabel)
+        view.addSubview(loginButton)
+        view.addSubview(createButton)
+        view.addSubview(aboutUsButton)
         
-        buttonLogin.addTarget(self, action: #selector(pressButtonLogin), for: .touchUpInside)
-        buttonCreate.addTarget(self, action: #selector(pressButtonCreate), for: .touchUpInside)
-        buttonAboutUs.addTarget(self, action: #selector(pressButtonAboutUs), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(pressButtonLogin), for: .touchUpInside)
+        createButton.addTarget(self, action: #selector(pressButtonCreate), for: .touchUpInside)
+        aboutUsButton.addTarget(self, action: #selector(pressButtonAboutUs), for: .touchUpInside)
     }
     
     /// Constraints
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     
-        labelWelcome.snp.makeConstraints { make in
+        welcomeLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(160)
         }
         
-        labelWelInfo.snp.makeConstraints { make in
+        welInfoLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(200)
             make.width.equalTo(300)
         }
         
-        buttonLogin.snp.makeConstraints { make in
+        loginButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(170)
             make.width.equalTo(340)
             make.height.equalTo(60)
         }
         
-        buttonCreate.snp.makeConstraints { make in
+        createButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(100)
             make.width.equalTo(340)
             make.height.equalTo(60)
         }
         
-        buttonAboutUs.snp.makeConstraints { make in
+        aboutUsButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(30)
             make.width.equalTo(340)

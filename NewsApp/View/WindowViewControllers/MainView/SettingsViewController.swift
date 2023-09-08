@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
     let topHeadlinesURL = URL(string: "https://pranx.com/hacker/typer/")
     
     /// UI Elements
-    let buttonLeave: UIButton = {
+    let leaveButton: UIButton = {
         let button = UIButton()
         button.setTitle("Leave", for: .normal)
         button.backgroundColor = UIColor(red: 3/255, green: 187/255, blue: 97/255, alpha: 1)
@@ -27,14 +27,14 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
-    let buttonIcon: UIButton = {
+    let iconButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "iconAppNews"), for: .normal)
         button.adjustsImageWhenHighlighted = false
         return button
     }()
     
-    let buttonIconClose:  UIButton = {
+    let iconCloseButton:  UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "iconAppNews"), for: .normal)
         button.adjustsImageWhenHighlighted = false // убирает затемнение кнопки
@@ -48,7 +48,7 @@ class SettingsViewController: UIViewController {
         return label
     }()
     
-    let buttonEditIcon: UIButton = {
+    let editIconButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus.viewfinder"), for: .normal)
         button.setTitle("  Change photo", for: .normal)
@@ -62,7 +62,7 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
-    let buttonWebsite: UIButton = {
+    let websiteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "network"), for: .normal)
         button.setTitle("  Website", for: .normal)
@@ -76,7 +76,7 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
-    let buttonSecurity: UIButton = {
+    let securityButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "checkmark.shield.fill"), for: .normal)
         button.setTitle("  Security", for: .normal)
@@ -90,7 +90,7 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
-    let buttonAboutUs: UIButton = {
+    let aboutUsButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "info.bubble.fill"), for: .normal)
         button.setTitle("  About the application", for: .normal)
@@ -104,7 +104,7 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
-    let buttonTime: UIButton = {
+    let timeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "timer"), for: .normal)
         button.setTitle("  Your time in the app", for: .normal)
@@ -118,7 +118,7 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
-    let buttonShare: UIButton = {
+    let shareButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "square.and.arrow.up.fill"), for: .normal)
         button.setTitle("  Share", for: .normal)
@@ -132,7 +132,7 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
-    let buttonOdher: UIButton = {
+    let odherButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "note"), for: .normal)
         button.setTitle("  Other", for: .normal)
@@ -158,41 +158,41 @@ class SettingsViewController: UIViewController {
     }
     
     func setupAddSubviews() {
-        view.addSubview(buttonLeave)
-        view.addSubview(buttonIcon)
+        view.addSubview(leaveButton)
+        view.addSubview(iconButton)
         view.addSubview(nameLabel)
-        view.addSubview(buttonEditIcon)
-        view.addSubview(buttonWebsite)
-        view.addSubview(buttonSecurity)
-        view.addSubview(buttonTime)
-        view.addSubview(buttonAboutUs)
-        view.addSubview(buttonShare)
-        view.addSubview(buttonOdher)
+        view.addSubview(editIconButton)
+        view.addSubview(websiteButton)
+        view.addSubview(securityButton)
+        view.addSubview(timeButton)
+        view.addSubview(aboutUsButton)
+        view.addSubview(shareButton)
+        view.addSubview(odherButton)
         
-        buttonLeave.addTarget(self, action: #selector(targetButtonLeave), for: .touchUpInside)
-        buttonIcon.addTarget(self, action: #selector(targetButtonIcon), for: .touchUpInside)
+        leaveButton.addTarget(self, action: #selector(targetButtonLeave), for: .touchUpInside)
+        iconButton.addTarget(self, action: #selector(targetButtonIcon), for: .touchUpInside)
         
-        buttonEditIcon.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
-        buttonWebsite.addTarget(self, action: #selector(targetButtonWebsite), for: .touchUpInside)
-        buttonSecurity.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
-        buttonTime.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
-        buttonAboutUs.addTarget(self, action: #selector(targetButtonAboutUs), for: .touchUpInside)
-        buttonShare.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
-        buttonOdher.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
+        editIconButton.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
+        websiteButton.addTarget(self, action: #selector(targetButtonWebsite), for: .touchUpInside)
+        securityButton.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
+        timeButton.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
+        aboutUsButton.addTarget(self, action: #selector(targetButtonAboutUs), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
+        odherButton.addTarget(self, action: #selector(targetButtonInDeveloping), for: .touchUpInside)
     }
     
     /// Constraints
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        buttonLeave.snp.makeConstraints { make in
+        leaveButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(buttonOdher.snp.bottom).offset(20)
+            make.top.equalTo(odherButton.snp.bottom).offset(20)
             make.width.equalTo(165)
             make.height.equalTo(50)
         }
         
-        buttonIcon.snp.makeConstraints { make in
+        iconButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(80)
             make.width.equalTo(100)
@@ -204,7 +204,7 @@ class SettingsViewController: UIViewController {
             make.top.equalToSuperview().inset(190)
         }
         
-        buttonEditIcon.snp.makeConstraints { make in
+        editIconButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(nameLabel.snp.bottom).offset(15)
             make.left.equalToSuperview().inset(10)
@@ -212,49 +212,49 @@ class SettingsViewController: UIViewController {
             make.height.equalTo(40)
         }
         
-        buttonWebsite.snp.makeConstraints { make in
+        websiteButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(buttonEditIcon.snp.bottom).offset(20)
+            make.top.equalTo(editIconButton.snp.bottom).offset(20)
             make.left.equalToSuperview().inset(10)
             make.width.equalTo(370)
             make.height.equalTo(50)
         }
         
-        buttonSecurity.snp.makeConstraints { make in
+        securityButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(buttonWebsite.snp.bottom).offset(10)
+            make.top.equalTo(websiteButton.snp.bottom).offset(10)
             make.left.equalToSuperview().inset(10)
             make.width.equalTo(370)
             make.height.equalTo(50)
         }
         
-        buttonTime.snp.makeConstraints { make in
+        timeButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(buttonSecurity.snp.bottom).offset(10)
+            make.top.equalTo(securityButton.snp.bottom).offset(10)
             make.left.equalToSuperview().inset(10)
             make.width.equalTo(370)
             make.height.equalTo(50)
         }
         
-        buttonAboutUs.snp.makeConstraints { make in
+        aboutUsButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(buttonTime.snp.bottom).offset(10)
+            make.top.equalTo(timeButton.snp.bottom).offset(10)
             make.left.equalToSuperview().inset(10)
             make.width.equalTo(370)
             make.height.equalTo(50)
         }
         
-        buttonShare.snp.makeConstraints { make in
+        shareButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(buttonAboutUs.snp.bottom).offset(10)
+            make.top.equalTo(aboutUsButton.snp.bottom).offset(10)
             make.left.equalToSuperview().inset(10)
             make.width.equalTo(370)
             make.height.equalTo(50)
         }
         
-        buttonOdher.snp.makeConstraints { make in
+        odherButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(buttonShare.snp.bottom).offset(10)
+            make.top.equalTo(shareButton.snp.bottom).offset(10)
             make.left.equalToSuperview().inset(10)
             make.width.equalTo(370)
             make.height.equalTo(50)
@@ -272,36 +272,36 @@ extension SettingsViewController {
     }
     
     @objc func targetButtonIcon() {
-        buttonIconClose.alpha = 0
+        iconCloseButton.alpha = 0
         
         let blurEffect = UIBlurEffect(style: .prominent)
         visualEffectView = UIVisualEffectView(effect: blurEffect)
         visualEffectView?.frame = view.bounds
-        buttonIconClose.isHidden = false
+        iconCloseButton.isHidden = false
         
         view.addSubview(visualEffectView!)
-        view.addSubview(buttonIconClose)
-        buttonIconClose.addTarget(self, action: #selector(targetButtonClose), for: .touchUpInside)
+        view.addSubview(iconCloseButton)
+        iconCloseButton.addTarget(self, action: #selector(targetButtonClose), for: .touchUpInside)
         
         UIView.animate(withDuration: 0.5) {
-            self.buttonIconClose.alpha = 1
+            self.iconCloseButton.alpha = 1
         }
         
-        buttonIconClose.snp.makeConstraints { make in
+        iconCloseButton.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
     @objc func targetButtonClose() {
         UIView.animate(withDuration: 0.5, animations: {
-            self.buttonIconClose.alpha = 0
+            self.iconCloseButton.alpha = 0
         }) { (_) in
-            self.buttonIconClose.isHidden = true
-            self.buttonIconClose.alpha = 1
-            self.buttonIcon.frame = self.view.bounds
+            self.iconCloseButton.isHidden = true
+            self.iconCloseButton.alpha = 1
+            self.iconButton.frame = self.view.bounds
             self.visualEffectView?.removeFromSuperview()
             self.visualEffectView = nil
-            self.buttonIcon.addTarget(self, action: #selector(self.targetButtonIcon), for: .touchUpInside)
+            self.iconButton.addTarget(self, action: #selector(self.targetButtonIcon), for: .touchUpInside)
         }
     }
     

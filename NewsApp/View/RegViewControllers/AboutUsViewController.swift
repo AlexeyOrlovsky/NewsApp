@@ -12,10 +12,10 @@ import SwiftUI
 
 class AboutUsViewController: UIViewController {
     
-    ///
+    /// website URL
     let topHeadlinesURL = URL(string: "https://pranx.com/hacker/typer/")
     
-    ///
+    /// UI Elements
     let nameViewTitle: UILabel = {
         let label = UILabel()
         label.text = "About the application"

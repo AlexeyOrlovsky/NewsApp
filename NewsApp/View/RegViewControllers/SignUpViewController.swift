@@ -14,20 +14,20 @@ import SnapKit
 class SignUpViewController: UIViewController {
     
     /// UI Elements
-    let strip: UIButton = {
+    let stripButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "stripGreen"), for: .normal)
         return button
     }()
     
-    let labelSignUp: UILabel = {
+    let signUpLabel: UILabel = {
         let label = UILabel()
         label.text = "Create"
         label.font = UIFont.systemFont(ofSize: 18, weight: .black)
         return label
     }()
     
-    let emailField: UITextField = {
+    let emailTextField: UITextField = {
         let emailField = UITextField()
         emailField.backgroundColor = .secondarySystemBackground
         emailField.layer.cornerRadius = 10
@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
         return emailField
     }()
     
-    let passwordField: UITextField = {
+    let passwordTextField: UITextField = {
         let passField = UITextField()
         passField.backgroundColor = .secondarySystemBackground
         passField.layer.cornerRadius = 10
@@ -53,7 +53,7 @@ class SignUpViewController: UIViewController {
         return passField
     }()
     
-    let repeatPassword: UITextField = {
+    let repeatPasswordTextField: UITextField = {
         let repeatField = UITextField()
         repeatField.isSecureTextEntry = true
         repeatField.backgroundColor = .secondarySystemBackground
@@ -89,46 +89,46 @@ class SignUpViewController: UIViewController {
     }
     
     func setupAddSubviews() {
-        view.addSubview(labelSignUp)
-        view.addSubview(emailField)
-        view.addSubview(passwordField)
-        view.addSubview(repeatPassword)
+        view.addSubview(signUpLabel)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(repeatPasswordTextField)
         view.addSubview(enterButton)
-        view.addSubview(strip)
+        view.addSubview(stripButton)
         
         enterButton.addTarget(self, action: #selector(createUserAccount), for: .touchUpInside)
-        strip.addTarget(self, action: #selector(stripEction), for: .touchUpInside)
+        stripButton.addTarget(self, action: #selector(stripEction), for: .touchUpInside)
     }
     
     /// Constraints
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        strip.snp.makeConstraints { make in
+        stripButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(5)
         }
         
-        labelSignUp.snp.makeConstraints { make in
+        signUpLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(200)
         }
         
-        emailField.snp.makeConstraints { make in
+        emailTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(272)
             make.width.equalTo(320)
             make.height.equalTo(50)
         }
         
-        passwordField.snp.makeConstraints { make in
+        passwordTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(334)
             make.width.equalTo(320)
             make.height.equalTo(50)
         }
         
-        repeatPassword.snp.makeConstraints { make in
+        repeatPasswordTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(396)
             make.width.equalTo(320)
@@ -148,13 +148,13 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController {
     
     @objc func createUserAccount() {
-        guard let email = emailField.text, !email.isEmpty,
-              let password = passwordField.text, !password.isEmpty, password.count > 6,
-              let passwordRepeat = repeatPassword.text, !passwordRepeat.isEmpty else { showInvalidRegister(); return }
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty, password.count > 6,
+              let passwordRepeat = repeatPasswordTextField.text, !passwordRepeat.isEmpty else { showInvalidRegister(); return }
         
         createAccountAtFirebase(email: email, password: password)
         
-        guard passwordField.text == repeatPassword.text else { showMatchPass(); return }
+        guard passwordTextField.text == repeatPasswordTextField.text else { showMatchPass(); return }
     }
     
     func createAccountAtFirebase(email: String, password: String) {

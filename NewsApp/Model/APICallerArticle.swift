@@ -5,16 +5,14 @@
 //  Created by Алексей Орловский on 23.05.2023.
 //
 
-// Models
-
-// MARK: - SearchResponse
+/// MARK: - SearchResponse
 struct APIResponse: Codable {
     let status: String?
     let totalResults: Int?
     let articles: [Article]
 }
 
-// MARK: - Article
+/// MARK: - Article
 struct Article: Codable {
     let source: Source?
     let author: String?
@@ -26,7 +24,7 @@ struct Article: Codable {
     let content: String?
 }
 
-// MARK: - Source
+/// MARK: - Source
 struct Source: Codable {
     let name: String?
 }

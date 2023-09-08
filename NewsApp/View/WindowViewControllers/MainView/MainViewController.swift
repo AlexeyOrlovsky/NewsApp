@@ -83,6 +83,7 @@ class MainViewController: UIViewController {
     }
 }
 
+/// UITableViewDelegate & UITableViewDataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
@@ -108,6 +109,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+/// UISearchBarDelegate
 extension MainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.isEmpty else { return }
