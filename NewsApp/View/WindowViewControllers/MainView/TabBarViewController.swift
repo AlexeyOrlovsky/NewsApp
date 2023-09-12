@@ -5,9 +5,6 @@
 //  Created by Алексей Орловский on 23.05.2023.
 //
 
-
-import SnapKit
-import SwiftUI
 import UIKit
 
 class TabBarViewController: UITabBarController {

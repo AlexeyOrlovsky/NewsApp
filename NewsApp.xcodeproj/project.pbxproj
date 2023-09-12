@@ -179,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				D26231902A140B2A009A8F69 /* NavigationManager.swift */,
+				D2B0F3F72A2BD23C00731DF1 /* RealmManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -264,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				D24176F92A1D27E60056DF26 /* NewsTableViewCell.swift */,
-				D2B0F3F72A2BD23C00731DF1 /* RealmManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
