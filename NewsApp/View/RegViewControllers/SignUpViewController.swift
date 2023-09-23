@@ -149,7 +149,7 @@ extension SignUpViewController {
     
     @objc func createUserAccount() {
         guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty, password.count > 6,
+              let password = passwordTextField.text, !password.isEmpty, password.count >= 6,
               let passwordRepeat = repeatPasswordTextField.text, !passwordRepeat.isEmpty else { showInvalidRegister(); return }
         
         createAccountAtFirebase(email: email, password: password)
